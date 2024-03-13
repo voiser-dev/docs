@@ -26,7 +26,21 @@ author = u'Voiser'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'sphinx.ext.autosectionlabel'
+    'sphinx.ext.autodoc',
+    'sphinx.ext.extlinks',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.doctest',
+    'sphinx.ext.graphviz',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.autosectionlabel',
+    'sphinxcontrib.httpdomain',
+    'sphinx_tabs.tabs',
+    'sphinx_rtd_theme',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.viewcode'
 ]
 
 templates_path = ['_templates']
