@@ -5,6 +5,7 @@ You can use the APIs on this page to convert your audio files to text. The conve
 
     1. Creating a project (`Create API`_)
     2. Query the result and get the text (`Result API`_)
+    3. (Optional) Translate the transcribed output into different languages. (`Translate API`_)
 
 
 .. _Create API:
