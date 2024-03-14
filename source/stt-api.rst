@@ -21,9 +21,9 @@ The api you will use to convert your audio file to text.
     - **userCode -** Your Voiser user code.
     - **projectName -** The name you want to give your project.
     - **fileUrl -** The url of the audio file to be converted to text or the youtube video url.
-    - **language -** Language code to be used. (`All Languages`_)
-    - **punctuation -** Can be used to set punctuation marks. (`All Options`_)
-    - **profanityFilter -** You can hide bad words with the profanity filter. (`All Options`_)
+    - **language -** Language code to be used. (`STT Languages`_)
+    - **punctuation -** Can be used to set punctuation marks. (`Punctutation Options`_)
+    - **profanityFilter -** You can hide bad words with the profanity filter. (`Profanity Options`_)
 
 **Response Parameters**
 
@@ -152,10 +152,102 @@ Result API allows you to query the status of the project you have created and, i
     }
 
 
-.. _All Languages:
 
-Languages
----------
+.. _Translate API:
+
+Translate API
+----------
+
+Result API allows you to query the status of the project you have created and, if completed, returns the download urls of the text files.
+
+.. http:post:: https://api.voiser.net/transcription/v1/translate
+
+**Request Parameters**
+
+    - **userCode -** Your Voiser user code.
+    - **projectCode -** The code of the project you want to query.
+    - **langCode -** Translation language code. (`Translate Languages`_)
+
+**Response Parameters**
+
+    - **status -** If it returns 1, the record has been created, if it returns 0, a problem has occurred.
+    - **message -** Informative message showing the result of your action.
+    - **result -** It returns translated transcription rows and their duration.
+
+
+**Example request**:
+
+.. tabs::
+
+    .. code-tab:: php
+
+        $data = array(
+            'userCode' => 'YOUR_USER_CODE',
+            'projectCode' => 'ABCDEFGH',
+            'langCode' => 'tr'
+        );
+
+        $ch = curl_init('https://api.voiser.net/transcription/v1/translate');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = json_decode(curl_exec($ch));
+        curl_close($ch);
+        print_r(response);
+
+    .. code-tab:: python
+
+        import requests
+        data = {
+            'userCode': 'YOUR_USER_CODE',
+            'projectCode': 'ABCDEFGH',
+            'langCode' => 'tr'
+        }
+        response = requests.post('https://api.voiser.net/transcription/v1/translate', json = data)
+        print(response.json())
+
+
+
+**Example response**:
+
+.. sourcecode:: json
+
+    {
+       "status": "1",
+       "message": "Transcript translate completed successfully",
+       "result": [
+            {
+                "text": "Hey there, I'm Yasaman from Voicer.",
+                "textTranslated": "Merhaba, ben Voiser'dan Yasaman.",
+                "timeStart": "0.56",
+                "timeEnd": 2.44
+            },
+            {
+                "text": "Let me show you how.",
+                "textTranslated": "Size nasıl olduğunu göstereyim.",
+                "timeStart": "2.52",
+                "timeEnd": 3.6
+            },
+            {
+                "text": "Use our AL voice solutions and level up your content with a text to speech, natural voices, transcribe voice recordings and even create your own unique voice with upcoming voice cloning.",
+                "textTranslated": "AL ses çözümlerimizi kullanın ve metninizi konuşmaya, doğal seslerle yükseltin, ses kayıtlarını yazıya dökün ve hatta yakında çıkacak olan ses klonlama ile kendi benzersiz sesinizi yaratın.",
+                "timeStart": "3.60",
+                "timeEnd": 14.12
+            },
+            {
+                "text": "And there is more.",
+                "textTranslated": "Dahası da var.",
+                "timeStart": "14.56",
+                "timeEnd": 15.56
+            }
+       ]
+    }
+
+
+.. _STT Languages:
+
+STT Languages
+-------------
 =================================== =======
 Language                            Code
 =================================== =======
@@ -295,7 +387,7 @@ Vietnamese (Vietnam)                vi-VN
 Zulu (South Africa)                 zu-ZA
 =================================== =======
 
-.. _All Options:
+.. _Punctutation Options:
 
 Punctutation
 ------------
@@ -307,8 +399,10 @@ None                           Does not use punctuation marks
 Dictated                       Uses punctuation marks
 ============================== =======================================
 
+.. _Profanity Options:
+
 Profanity
-------------
+---------
 
 ============================== =======================================
 Option                         Description
@@ -316,3 +410,141 @@ Option                         Description
 Masked (Default)               Slang hides words
 None                           Slang does not hide words
 ============================== =======================================
+
+.. _Translate Languages:
+
+Translate Languages
+-------------------
+=================================== =======
+Language                            Code
+=================================== =======
+Afrikaans	                        af
+Amharic	                            am
+Arabic	                            ar
+Assamese	                        as
+Azerbaijani	                        az
+Bashkir	                            ba
+Bulgarian	                        bg
+Bangla	                            bn
+Tibetan	                            bo
+Bosnian	                            bs
+Catalan	                            ca
+Czech	                            cs
+Welsh	                            cy
+Danish	                            da
+German	                            de
+Lower Sorbian	                    dsb
+Divehi	                            dv
+Greek	                            el
+English	                            en
+Spanish	                            es
+Estonian	                        et
+Basque	                            eu
+Persian	                            fa
+Finnish	                            fi
+Filipino	                        fil
+Fijian	                            fj
+Faroese	                            fo
+French	                            fr
+French (Canada)	                    fr-CA
+Irish	                            ga
+Galician	                        gl
+Konkani	                            gom
+Gujarati	                        gu
+Hausa	                            ha
+Hebrew	                            he
+Hindi	                            hi
+Croatian	                        hr
+Upper Sorbian	                    hsb
+Haitian Creole	                    ht
+Hungarian	                        hu
+Armenian	                        hy
+Indonesian	                        id
+Igbo	                            ig
+Inuinnaqtun	                        ikt
+Icelandic	                        is
+Italian	                            it
+Inuktitut	                        iu
+Inuktitut (Latin)	                iu-Latn
+Japanese	                        ja
+Georgian	                        ka
+Kazakh	                            kk
+Khmer	                            km
+Kurdish (Northern)	                kmr
+Kannada	                            kn
+Korean	                            ko
+Kurdish (Central)	                ku
+Kyrgyz	                            ky
+Lingala	                            ln
+Lao	                                lo
+Lithuanian	                        lt
+Ganda	                            lug
+Latvian	                            lv
+Chinese (Literary)	                lzh
+Maithili	                        mai
+Malagasy	                        mg
+Māori	                            mi
+Macedonian	                        mk
+Malayalam	                        ml
+Mongolian (Cyrillic)	            mn-Cyrl
+Mongolian (Traditional)	            mn-Mong
+Marathi	                            mr
+Malay	                            ms
+Maltese	                            mt
+Hmong Daw	                        mww
+Myanmar (Burmese)	                my
+Norwegian	                        nb
+Nepali	                            ne
+Dutch	                            nl
+Sesotho sa Leboa	                nso
+Nyanja	                            nya
+Odia	                            or
+Querétaro Otomi	                    otq
+Punjabi	                            pa
+Polish	                            pl
+Dari	                            prs
+Pashto	                            ps
+Portuguese (Brazil)	                pt
+Portuguese (Portugal)	            pt-PT
+Romanian	                        ro
+Russian	                            ru
+Rundi	                            run
+Kinyarwanda	                        rw
+Sindhi	                            sd
+Sinhala	                            si
+Slovak	                            sk
+Slovenian	                        sl
+Samoan	                            sm
+Shona	                            sn
+Somali	                            so
+Albanian	                        sq
+Serbian (Cyrillic)	                sr-Cyrl
+Serbian (Latin)	                    sr-Latn
+Sesotho	                            st
+Swedish	                            sv
+Swahili	                            sw
+Tamil	                            ta
+Telugu	                            te
+Thai	                            th
+Tigrinya	                        ti
+Turkmen	                            tk
+Klingon (Latin)	                    tlh-Latn
+Klingon (pIqaD)	                    tlh-Piqd
+Setswana	                        tn
+Tongan	                            to
+Turkish	                            tr
+Tatar	                            tt
+Tahitian	                        ty
+Uyghur	                            ug
+Ukrainian	                        uk
+Urdu	                            ur
+Uzbek (Latin)	                    uz
+Vietnamese	                        vi
+Xhosa	                            xh
+Yoruba	                            yo
+Yucatec Maya	                    yua
+Cantonese (Traditional)	            yue
+Chinese Simplified	                zh-Hans
+Chinese Traditional	                zh-Hant
+Zulu	                            zu
+=================================== =======
