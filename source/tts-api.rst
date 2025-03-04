@@ -96,9 +96,10 @@ You can create a project and download your file by giving the text you want to c
 
 Languages
 ---------
-======================================== ==========
+======================================== ============
 Language                                 Code
-======================================== ==========
+======================================== ============
+Multilingual                             multilingual
 Afrikaans (South Africa)                 af-ZA
 Albanian (Albania)                       sq-AL
 Amharic (Ethiopia)                       am-ET
@@ -248,7 +249,54 @@ Voices
 ================== =======================================================
 Voice Name         Language
 ================== =======================================================
-Jenny Multilingual English (American)                       
+Ada                Multilingual
+Adam               Multilingual
+Alessio            Multilingual
+Alex               Multilingual
+Amanda             Multilingual
+Andrew             Multilingual
+Arabella           Multilingual
+Ava                Multilingual
+Brandon            Multilingual
+Brian              Multilingual
+Caroline           Multilingual
+Derek              Multilingual
+Dustin             Multilingual
+Florian            Multilingual
+Giuseppe           Multilingual
+Hyunsu             Multilingual
+Isabella           Multilingual
+Isidora            Multilingual
+James              Multilingual
+Lena               Multilingual
+Lewis              Multilingual
+Lily               Multilingual
+Lola               Multilingual
+Lucien             Multilingual
+Macerio            Multilingual
+Marcello           Multilingual
+Masaru             Multilingual
+Mia                Multilingual
+Nancy              Multilingual
+Ollie              Multilingual
+Phoebe             Multilingual
+Remy               Multilingual
+Ryan               Multilingual
+Samuel             Multilingual
+Seraphina          Multilingual
+Serena             Multilingual
+Steffan            Multilingual
+Thalita            Multilingual
+Tristan            Multilingual
+Vivienne           Multilingual
+Xiaochen           Multilingual
+Xiaoxiao           Multilingual
+Xiaoyu             Multilingual
+Ximena             Multilingual
+Yunfan             Multilingual
+Yunxiao            Multilingual
+Yunyi              Multilingual
+Jenny Multilingual English (American)
 Giorgi             ka-GE                                    
 Abeo               en-NG                                    
 YunxiSichuan       zh-CN-SC                                 
