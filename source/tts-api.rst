@@ -240,7 +240,7 @@ Uzbek (Uzbekistan)                       uz-UZ
 Vietnamese                               vi-VN
 Welsh (United Kingdom)                   cy-GB
 Zulu (South Africa)                      zu-ZA
-======================================== ==========
+======================================== ============
 
 .. _All Voices:
 
